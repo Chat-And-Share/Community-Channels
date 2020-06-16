@@ -29,6 +29,7 @@ client.on("message", async (message) => {
   if (delList === null) delList = [];
   else if (typeof delList === "number") delList = [delList];
   else if (delList !== null) delList = [...delList];
+  console.log(delList);
 
   if (delList.includes(message.channel.id)) {
     message.delete({
