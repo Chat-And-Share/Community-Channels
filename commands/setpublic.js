@@ -2,11 +2,6 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args, tools) => {
-  if (message.guild.id === "435093693402316800") {
-    let commandFile = require(`./setpublic_page.js`);
-    return commandFile.run(client, message, args, tools);
-  }
-
   let owner = await db.fetch(`channelOwner_${message.channel.id}`),
     moderators = await db.fetch(`moderators_${message.channel.id}`);
 

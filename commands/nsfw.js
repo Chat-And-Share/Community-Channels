@@ -2,15 +2,6 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 
 exports.run = async (bot, message, args, tools) => {
-  if (!args || args.length === 0) {
-    const embed = new Discord.MessageEmbed().setTitle("you didn't specify true or false");
-
-    return tools.send(message.channel, embed, {
-      color: true,
-      name: "Invalid Setting",
-      icon: "https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/document-128.png",
-    });
-  }
   let owner = await db.fetch(`channelOwner_${message.channel.id}`),
     moderators = await db.fetch(`moderators_${message.channel.id}`);
 
@@ -26,7 +17,7 @@ exports.run = async (bot, message, args, tools) => {
     });
   }
 
-  if (!["true", "false"].includes(args[0].toLowerCase())) {
+  if (!["true", "false"].includes(args[0].toLowerCase()) || !args[0]) {
     const embed = new Discord.MessageEmbed().setTitle("Please write true or false following the command.");
 
     return tools.send(message.channel, embed, {

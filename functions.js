@@ -102,7 +102,7 @@ module.exports = {
       if (!channel && officialString.length > 0 && channelID == officialChannels[officialChannels.length - 1]) return embed.addField("<----- Official  Channels ----->", officialString, true);
       if (!channel) return;
 
-      officialString += `**${index}** [❱](http://) ${channel.name.charAt(0).toUpperCase() + channel.name.slice(1).replace("nsfw", "NSFW")}\n`;
+      officialString += `**${index}** ❱ ${channel.name.charAt(0).toUpperCase() + channel.name.slice(1).replace("nsfw", "NSFW")}\n`;
       officialString = officialString.replace(/-/g, " ").replace(/(\b[a-z](?!\s))/g, function (x) {
         return x.toUpperCase();
       });
@@ -125,7 +125,7 @@ module.exports = {
       if (!channel && communityString.length > 0 && channelID == communityChannels[communityChannels.length - 1]) return embed.addField("<----- Community Channels ----->", communityString, true);
       if (!channel) return;
 
-      communityString += `**${index}** [❱](http://) ${channel.name.charAt(0).toUpperCase() + channel.name.slice(1).replace("nsfw", "NSFW")}\n`;
+      communityString += `**${index}** ❱ ${channel.name.charAt(0).toUpperCase() + channel.name.slice(1).replace("nsfw", "NSFW")}\n`;
       communityString = communityString.replace(/-/g, " ").replace(/(\b[a-z](?!\s))/g, function (x) {
         return x.toUpperCase();
       });
@@ -308,7 +308,7 @@ module.exports = {
           if (!message.guild.channels.cache.get(o[i])) console.log("Fetched channel not found.");
           else {
             joinList.push(o[i]);
-            officialChannels += `**${i + 1}** [❱](http://) ${message.guild.channels.cache.get(o[i]).name.charAt(0).toUpperCase() + message.guild.channels.cache.get(o[i]).name.slice(1).replace("nsfw", "NSFW")}`;
+            officialChannels += `**${i + 1}** ❱ ${message.guild.channels.cache.get(o[i]).name.charAt(0).toUpperCase() + message.guild.channels.cache.get(o[i]).name.slice(1).replace("nsfw", "NSFW")}`;
             //if (message.guild.channels.cache.get(o[i]).topic) officialChannels += ` **-** ${message.guild.channels.cache.get(o[i]).topic}`
             officialChannels += "\n\n";
           }
@@ -322,7 +322,7 @@ module.exports = {
             if (!message.guild.channels.cache.get(o[i])) console.log("Fetched channel not found.");
             else {
               joinList.push(p[i]);
-              publicChannels += `**${i + 1 + index}** [❱](http://) ${message.guild.channels.cache.get(p[i]).name.charAt(0).toUpperCase() + message.guild.channels.cache.get(p[i]).name.slice(1).replace("nsfw", "NSFW")}`;
+              publicChannels += `**${i + 1 + index}** ❱ ${message.guild.channels.cache.get(p[i]).name.charAt(0).toUpperCase() + message.guild.channels.cache.get(p[i]).name.slice(1).replace("nsfw", "NSFW")}`;
               //if (message.guild.channels.cache.get(p[i]).topic) publicChannels += ` **-** ${message.guild.channels.cache.get(p[i]).topic}`
               publicChannels += "\n\n";
             }
