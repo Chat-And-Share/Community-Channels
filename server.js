@@ -18,7 +18,7 @@ const Discord = require("discord.js"),
 
 client.on("message", async (message) => {
   // Return Statement
-  if (!message.content.startsWith(prefix) || message.author.bot || !message.guild) return;
+  if (message.author.bot || !message.guild) return;
 
   // Variable
   let args = message.content.slice(prefix.length).trim().split(" "),
@@ -29,14 +29,13 @@ client.on("message", async (message) => {
   if (delList === null) delList = [];
   else if (typeof delList === "number") delList = [delList];
   else if (delList !== null) delList = [...delList];
-  console.log(delList);
 
-  if (delList.includes(message.channel.id)) {
+  if (delList.includes(message.channel.id))
     message.delete({
       timeout: 1000,
     });
-    console.log("DELLIST");
-  }
+
+  if (!message.content.startsWith(prefix)) return;
 
   // Aliases
   let aliases = {
