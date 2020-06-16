@@ -26,8 +26,10 @@ client.on("message", async (message) => {
     completed = true;
 
   let delList = await db.fetch(`autoDelete_${message.guild.id}`);
+  if (typeof delList === "number") delList = [delList];
+  else if (delList !== null) delList = [...delList];
 
-  if (delList !== null && ((!typeof delList === "array" && delList === message.channel.id) || (typeof delList === "array" && delList.includes(message.channel.id))) && !message.author.bot)
+  if (delList !== null && delList.includes(message.channel.id))
     message.delete({
       timeout: 1000,
     });
