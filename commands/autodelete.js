@@ -26,6 +26,8 @@ exports.run = async (client, message, args, tools) => {
     channel = message.mentions.channels.first();
 
   if (list === null) list = [];
+  else if (typeof list === "number") list = [list];
+  else list = [...list];
 
   if (list.includes(channel.id)) {
     list = list.splice(list.indexOf(channel.id), 1);

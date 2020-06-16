@@ -76,11 +76,7 @@ module.exports = {
     }
 
     const embed = new Discord.MessageEmbed();
-    if (guild.id === "435093693402316800") {
-      embed.setColor(message.embeds[0].color).setTitle("Welcome to Hypnospace! Here's all you need to surf the Hypnospace Highway:").setDescription("**Want to join a page? *Type:***\n`~join #`\n\n**To leave, type the following:**\n`~leave #`").setFooter("Custom Developed by Plexi Development @ discord.gg/8nrEqvP | ~info for more information.");
-    } else {
-      embed.setColor(message.embeds[0].color).setTitle(`Community Channels`).setDescription("**Want to join a channel? *Type:***\n`~join #`\n\n**To leave, type the following in the channel:**\n`~leave` **or** `~leave #`").setFooter("Community Channels Developed By Plexi Development @ discord.gg/plexidev | ~info for more information.");
-    }
+    embed.setColor(message.embeds[0].color).setTitle(`Community Channels`).setDescription("**Want to join a channel? *Type:***\n`~join #`\n\n**To leave, type the following in the channel:**\n`~leave` **or** `~leave #`").setFooter("Community Channels Developed By Plexi Development @ discord.gg/plexidev | ~info for more information.");
 
     let joinList = [],
       officialChannels = await db.fetch(`officialChannels_${guild.id}`),
@@ -110,8 +106,7 @@ module.exports = {
       index++;
 
       if (officialString.length > 924) {
-        if (guild.id === "435093693402316800") embed.addField("Official Pages", officialString, true);
-        else embed.addField("<--------- Official Channels --------->", officialString, true);
+        embed.addField("<--------- Official Channels --------->", officialString, true);
         officialString = "";
       }
 
@@ -133,8 +128,7 @@ module.exports = {
       index++;
 
       if (communityString.length > 924) {
-        if (guild.id === "435093693402316800") embed.addField("Citizen Pages", communityString, true);
-        else embed.addField("<------ Community Channels ------>", communityString, true);
+        embed.addField("<------ Community Channels ------>", communityString, true);
         communityString = "";
       }
       if (communityString.length > 0 && channelID == communityChannels[communityChannels.length - 1] && guild.id === "435093693402316800") {

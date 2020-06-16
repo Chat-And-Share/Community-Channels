@@ -53,7 +53,7 @@ exports.run = async (client, message, args, tools) => {
       if (resp.includes("Official Channels")) await db.set(`officialChannels_${message.guild.id}`, officialChannels);
       if (resp.includes("Community Channels")) await db.set(`communityChannels_${message.guild.id}`, communityChannels);
 
-      const embed = new Discord.MessageEmbed().setFooter(msg);
+      const embed = new Discord.MessageEmbed().setTitle(msg);
 
       tools.send(message.channel, embed, {
         color: true,
