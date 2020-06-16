@@ -41,7 +41,7 @@ exports.run = async (client, message, args, tools) => {
       icon: "https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/bookshelf-128.png",
     });
   } else {
-    await db.push(`autoDelete_${message.guild.id}`, channel.id);
+    await db.set(`autoDelete_${message.guild.id}`, [...list, channel.id]);
 
     const embed = new Discord.MessageEmbed().setTitle(`Auto-Delete turned on for #${channel.name}.`);
 
